@@ -1,0 +1,60 @@
+import java.util.*;
+
+class LList {
+    Node head = null;
+    class Node {
+        int data;
+        Node next;
+
+        Node(int val) {
+            data = val;
+            next = null;
+        }
+    }
+    public void insert(int val) {
+        Node newnode = new Node(val);
+        if (head == null) {
+            head = newnode;
+        } else {
+            newnode.next = head;
+            head = newnode;
+        }
+    }
+    public void display() {
+        if (head == null) {
+            System.out.println("The list is empty.");
+            return;
+        }
+        Node temp = head;
+        while (temp != null) {
+            System.out.println(temp.data);
+            temp = temp.next;
+        }
+    }
+    public void insertAtPosition(int val,int pos){
+        if(pos==0){
+            insert(val);
+        }
+        else{
+            Node newnode=new Node(val);
+            Node temp=head;
+            for(int i=1;i<pos;i++){
+                temp=temp.next;
+                if(temp==null){
+                    return;
+                }
+            }
+            newnode.next=temp.next;
+            temp.next=newnode;
+        }
+    }
+    public static void main(String[] args) {
+        LList l = new LList();
+        l.insert(100);
+        l.insert(200);
+        l.insert(300);
+        l.insert(400);
+        l.insertAtPosition(300,7);
+        l.display();
+    }
+}
