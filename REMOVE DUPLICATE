@@ -1,0 +1,20 @@
+import java.util.HashSet;
+class Main{
+    public static String removeDuplicates(String input) {
+        HashSet<Character> uniqueChars = new HashSet<>();
+        StringBuilder result = new StringBuilder();
+        for (char c : input.toCharArray()) {
+            if (uniqueChars.add(c)) {
+                result.append(c);
+            }
+        }
+        return result.toString();
+    }
+
+    public static void main(String[] args) {
+        String str2 = "prathakshana";
+        String str1 = removeDuplicates(str2);
+        System.out.println("String after removing duplicates: " + str1);
+    }
+}
+
