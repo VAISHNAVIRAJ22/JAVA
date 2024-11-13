@@ -1,0 +1,17 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String s = "I Love India";
+        String[] arr = s.split(" ");
+        String word = "";
+
+        for (int i = arr.length - 1; i >= 0; i--) {
+            word += arr[i];
+        
+                word += " ";
+        
+        }
+        
+        System.out.print(word);
+    }
+}
